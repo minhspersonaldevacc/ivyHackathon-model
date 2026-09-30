@@ -1,0 +1,48 @@
+{
+  "synthetic": true,
+  "config": {
+    "thetaResolution": 32,
+    "phiResolution": 64,
+    "countScale": 16,
+    "linearDeflectionRatio": 0.002,
+    "angularDeflection": 0.3,
+    "weldRelativeTolerance": 1e-09,
+    "rayTolerance": 1e-07,
+    "pcaDegeneracyTolerance": 0.001,
+    "leafSize": 32,
+    "descriptorVersion": 1,
+    "normalizationVersion": 1
+  },
+  "metric": "euclidean",
+  "axisFlipVariants": 4,
+  "seedSecondsExcludedFromSearch": 4.1895165579990135,
+  "benchmarks": [
+    {
+      "candidateCount": 100,
+      "returnedMatches": 50,
+      "bestDistance": 0.0,
+      "storageSeconds": 0.009865499996521976,
+      "comparisonSeconds": 0.011172832004376687,
+      "searchTotalSeconds": 0.021146926999790594,
+      "microsecondsPerCandidate": 211.46926999790594
+    },
+    {
+      "candidateCount": 1000,
+      "returnedMatches": 50,
+      "bestDistance": 0.0,
+      "storageSeconds": 0.09477987999707693,
+      "comparisonSeconds": 0.10240001200145343,
+      "searchTotalSeconds": 0.19834251800057245,
+      "microsecondsPerCandidate": 198.34251800057245
+    },
+    {
+      "candidateCount": 10000,
+      "returnedMatches": 50,
+      "bestDistance": 0.0,
+      "storageSeconds": 0.9621587450383231,
+      "comparisonSeconds": 0.9954085819990723,
+      "searchTotalSeconds": 1.966915108001558,
+      "microsecondsPerCandidate": 196.6915108001558
+    }
+  ]
+}

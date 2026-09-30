@@ -1,0 +1,8 @@
+name: cad-stage1
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - "pythonocc-core=7.9.3=novtk*"
+  - "numpy>=1.26,<3"
