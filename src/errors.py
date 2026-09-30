@@ -15,3 +15,7 @@ class DatabaseError(Exception):
 
 class DescriptorError(CadError):
     """Descriptor generation, compatibility, or persistence failed."""
+
+
+class DetailedSimilarityError(CadError):
+    """Detailed geometry preprocessing, cache, or reranking failed."""

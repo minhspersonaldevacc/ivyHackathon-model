@@ -1,5 +1,7 @@
 # Stage 2: spherical mesh descriptors
 
+Stage 3 now consumes this stage's shortlist for [detailed geometric reranking](stage3.md).
+
 Stage 2 extends the existing Stage 1 index with a geometric fingerprint and cached
 candidate ranking. Stage 1 loading, metadata extraction, family rules, tables, and
 coarse filtering are reused. Descriptor storage is additive; manufacturing

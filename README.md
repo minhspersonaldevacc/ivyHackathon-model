@@ -2,6 +2,9 @@
 
 **Stage 2 is now implemented:** see [spherical descriptors and geometric ranking](docs/stage2.md)
 for offline preprocessing, APIs, CLI commands, debug images, and benchmarks.
+**Stage 3 is now implemented:** see [detailed geometry reranking](docs/stage3.md)
+for cached meshes/face properties, alignment, surface comparison, CLI usage, and
+limitations. This baseline requires no trained neural checkpoint.
 This page documents the existing Stage 1 foundation.
 
 Stage 1 reads historical STEP files once, stores numeric geometry and a

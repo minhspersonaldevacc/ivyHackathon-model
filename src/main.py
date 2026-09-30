@@ -10,13 +10,14 @@ import sys
 
 from src.errors import CadError, DatabaseError, DependencyError
 from src.descriptorCli import addDescriptorCommands, descriptorCommands, runDescriptorCommand
+from src.detailedCli import addDetailedCommands, detailedCommands, runDetailedCommand
 from src.indexing.database import PartDatabase
 from src.indexing.partIndexer import IndexResult, indexPath, inspectPart
 from src.models.partMetadata import shapeFamilies
 
 
 def buildParser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="CAD metadata index and spherical descriptor search.")
+    parser = argparse.ArgumentParser(description="CAD metadata, spherical retrieval, and detailed geometry reranking.")
     commands = parser.add_subparsers(dest="command", required=True)
 
     indexParser = commands.add_parser("index", help="Index a STEP file or recursively scan a directory")
@@ -37,6 +38,7 @@ def buildParser() -> argparse.ArgumentParser:
     findParser.add_argument("--volume-range", dest="volumeRange", type=float, nargs=2, metavar=("MIN", "MAX"), help="Inclusive volume range in mm³")
     findParser.add_argument("--limit", type=int, default=None, help="Optional truncation by partId; results are not similarity ranked")
     addDescriptorCommands(commands)
+    addDetailedCommands(commands)
     return parser
 
 
@@ -66,10 +68,11 @@ def nativeMessagesToStderr():
 def main(arguments: list[str] | None = None) -> int:
     options = buildParser().parse_args(arguments)
     try:
-        if options.command in descriptorCommands:
+        if options.command in descriptorCommands | detailedCommands:
             try:
                 with nativeMessagesToStderr():
-                    result, exitCode = runDescriptorCommand(options)
+                    handler = runDescriptorCommand if options.command in descriptorCommands else runDetailedCommand
+                    result, exitCode = handler(options)
             except ImportError as error:
                 raise DependencyError("Activate the environment from environment.yml: " + str(error)) from error
             printJson(result)

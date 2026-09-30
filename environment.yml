@@ -6,3 +6,4 @@ dependencies:
   - python=3.12
   - "pythonocc-core=7.9.3=novtk*"
   - "numpy>=1.26,<3"
+  - "scipy>=1.11,<2"
